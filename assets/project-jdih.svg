@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title">
+  <title id="title">JDIH placeholder image</title>
+  <rect width="96" height="96" rx="28" fill="#ffd7ef"/>
+  <path d="M50 23 66 39l-7 7-7-7-9 9 12 12-7 7-30-30 7-7 12 12 9-9-3-3 7-7Z" fill="#17000c"/>
+  <path d="M27 67h42v8H27z" fill="#ff4fa3"/>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title">
+  <title id="title">Maturity placeholder image</title>
+  <rect width="96" height="96" rx="28" fill="#ffd7ef"/>
+  <rect x="26" y="24" width="44" height="48" rx="8" fill="#17000c"/>
+  <rect x="34" y="54" width="6" height="10" rx="2" fill="#ff8bc3"/>
+  <rect x="45" y="44" width="6" height="20" rx="2" fill="#ff4fa3"/>
+  <rect x="56" y="34" width="6" height="30" rx="2" fill="#b7ff70"/>
+</svg>

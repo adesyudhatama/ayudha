@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title">
+  <title id="title">Organisasi placeholder image</title>
+  <rect width="96" height="96" rx="28" fill="#ffd7ef"/>
+  <rect x="38" y="18" width="20" height="20" rx="6" fill="#17000c"/>
+  <rect x="18" y="58" width="20" height="20" rx="6" fill="#17000c"/>
+  <rect x="58" y="58" width="20" height="20" rx="6" fill="#17000c"/>
+  <path d="M48 38v12M28 50h40M28 50v8M68 50v8" stroke="#ff4fa3" stroke-width="6" stroke-linecap="round"/>
+</svg>

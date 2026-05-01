@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">AYUDHA dummy logo</title>
+  <desc id="desc">Placeholder logo that can be replaced later.</desc>
+  <rect width="64" height="64" rx="18" fill="#17000c"/>
+  <path d="M17 45 29 16h7l12 29h-8l-2-6H27l-2 6h-8Zm12-12h7l-3.5-10L29 33Z" fill="#ff8bc3"/>
+  <path d="M44 18v27h-7V18h7Z" fill="#ffd7ef" opacity=".9"/>
+</svg>
