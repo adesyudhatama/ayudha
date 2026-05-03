@@ -192,12 +192,14 @@ img {
 }
 
 .top-app-bar {
-  position: sticky;
+  position: fixed;
   top: 16px;
+  left: 0;
+  right: 0;
   z-index: 10;
   width: min(1120px, calc(100% - 32px));
   min-height: 72px;
-  margin: 16px auto 0;
+  margin: 0 auto;
   padding: 10px 12px 10px 16px;
   display: flex;
   align-items: center;
@@ -309,7 +311,7 @@ section {
   grid-template-columns: minmax(0, 0.94fr) minmax(min(430px, 100%), 0.78fr);
   align-items: center;
   gap: clamp(34px, 5vw, 72px);
-  padding: 70px 0 54px;
+  padding: 110px 0 54px;
 }
 
 .hero-copy {
@@ -1871,7 +1873,7 @@ h2 {
     min-height: auto;
     grid-template-columns: 1fr;
     gap: 24px;
-    padding: 46px 0 36px;
+    padding: 94px 0 36px;
   }
 
   h1 {
@@ -1970,7 +1972,7 @@ h2 {
   }
 
   .hero {
-    padding-top: 34px;
+    padding-top: 94px;
   }
 
   h1 {
