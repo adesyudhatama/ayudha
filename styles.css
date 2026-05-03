@@ -2318,6 +2318,28 @@ h2 {
     min-width: 44px;
     font-size: 0.94rem;
   }
+
+  .tools-grid {
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 12px;
+  }
+
+  .tool-card {
+    padding: 14px 10px;
+    gap: 8px;
+    border-radius: 20px;
+  }
+
+  .tool-icon {
+    width: 44px;
+    height: 44px;
+    padding: 8px;
+    border-radius: 12px;
+  }
+
+  .tool-card span {
+    font-size: 0.75rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
