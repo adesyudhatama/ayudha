@@ -205,6 +205,14 @@ img {
   background: rgba(13, 10, 17, 0.76);
   box-shadow: 0 16px 48px rgba(0, 0, 0, 0.28);
   backdrop-filter: blur(18px);
+  transition: transform 400ms cubic-bezier(0.4, 0, 0.2, 1), opacity 400ms ease;
+  will-change: transform;
+}
+
+.top-app-bar.nav-hidden {
+  transform: translateY(calc(-100% - 32px));
+  opacity: 0;
+  pointer-events: none;
 }
 
 .brand {
@@ -296,7 +304,7 @@ section {
 .hero {
   min-height: calc(100vh - 104px);
   display: grid;
-  grid-template-columns: minmax(0, 0.94fr) minmax(430px, 0.78fr);
+  grid-template-columns: minmax(0, 0.94fr) minmax(min(430px, 100%), 0.78fr);
   align-items: center;
   gap: clamp(34px, 5vw, 72px);
   padding: 70px 0 54px;
@@ -1470,7 +1478,7 @@ h2 {
   z-index: 20;
   left: 50%;
   bottom: 16px;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(0);
   width: min(420px, calc(100% - 28px));
   min-height: 72px;
   display: none;
@@ -1486,6 +1494,14 @@ h2 {
     0 0 0 1px rgba(255, 255, 255, 0.04) inset,
     0 1px 0 rgba(255, 255, 255, 0.08) inset;
   backdrop-filter: blur(24px) saturate(1.4);
+  transition: transform 400ms cubic-bezier(0.4, 0, 0.2, 1), opacity 400ms ease;
+  will-change: transform;
+}
+
+.mobile-nav.nav-hidden {
+  transform: translateX(-50%) translateY(calc(100% + 32px));
+  opacity: 0;
+  pointer-events: none;
 }
 
 .mobile-nav-glow {
@@ -2033,9 +2049,12 @@ h2 {
 
   .team,
   .projects,
-  .achievements,
-  .contact {
+  .achievements {
     padding: 50px 0;
+  }
+
+  .contact {
+    padding: 50px 0 100px;
   }
 
   .achievement-card {
