@@ -93,14 +93,15 @@ const updateNavVisibility = () => {
   const isPastHero = currentScrollY > 120;
 
   if (isScrollingDown && isPastHero) {
-    // Scrolling down — hide both navbars
+    // Scrolling down — hide top navbar
     if (topBar) topBar.classList.add("nav-hidden");
-    if (mobileNav) mobileNav.classList.add("nav-hidden");
   } else {
-    // Scrolling up or at top — show both
+    // Scrolling up or at top — show top navbar
     if (topBar) topBar.classList.remove("nav-hidden");
-    if (mobileNav) mobileNav.classList.remove("nav-hidden");
   }
+
+  // Mobile nav stays visible
+  if (mobileNav) mobileNav.classList.remove("nav-hidden");
 
   lastScrollY = currentScrollY;
   ticking = false;
