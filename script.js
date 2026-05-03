@@ -33,7 +33,7 @@ revealItems.forEach((item, index) => {
   revealObserver.observe(item);
 });
 
-document.querySelectorAll(".profile-card, .project-card, .achievement-card, .skill-column, .contact-panel, .filled-button, .tonal-button").forEach((item) => {
+document.querySelectorAll(".profile-card, .project-card, .achievement-card, .profile-skills, .contact-panel, .filled-button, .tonal-button").forEach((item) => {
   item.addEventListener("pointermove", (event) => {
     const rect = item.getBoundingClientRect();
     const x = event.clientX - rect.left;
@@ -42,3 +42,35 @@ document.querySelectorAll(".profile-card, .project-card, .achievement-card, .ski
     item.style.setProperty("--y", `${y}px`);
   });
 });
+
+// Mobile nav - scroll-based active state tracking
+const mobileNavItems = document.querySelectorAll(".mobile-nav-item");
+const trackedSections = document.querySelectorAll("section[id]");
+
+if (mobileNavItems.length && trackedSections.length) {
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.getAttribute("id");
+          mobileNavItems.forEach((item) => {
+            const href = item.getAttribute("href");
+            if (href === `#${sectionId}`) {
+              item.classList.add("active");
+            } else {
+              item.classList.remove("active");
+            }
+          });
+        }
+      });
+    },
+    {
+      rootMargin: "-30% 0px -50% 0px",
+      threshold: 0,
+    }
+  );
+
+  trackedSections.forEach((section) => {
+    sectionObserver.observe(section);
+  });
+}

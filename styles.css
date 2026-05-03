@@ -507,7 +507,6 @@ h2 {
 .team,
 .projects,
 .achievements,
-.skills,
 .contact {
   padding: 72px 0;
 }
@@ -685,6 +684,52 @@ h2 {
   color: var(--secondary);
   font-size: 0.92rem;
   transition: 220ms ease;
+}
+
+/* Profile Skills - embedded skill matrix inside profile card */
+.profile-skills {
+  --skill-accent: var(--profile-accent);
+  --skill-accent-2: var(--profile-accent-2);
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at 18% 18%, color-mix(in srgb, var(--profile-accent) 16%, transparent), transparent 42%),
+    rgba(9, 8, 14, 0.52);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(8px);
+}
+
+.profile-skills-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.profile-skills-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--profile-accent) 18%, transparent);
+  color: color-mix(in srgb, var(--profile-accent) 76%, white 24%);
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.profile-skills-label .material-symbols-rounded {
+  font-size: 20px;
+}
+
+.profile-skills .skill-score {
+  --score-size: 58px;
+}
+
+.profile-skills .skill-score span {
+  font-size: 0.82rem;
 }
 
 .project-grid {
@@ -1366,40 +1411,213 @@ h2 {
   margin-bottom: 8px;
 }
 
+/* Mobile Header Actions - hidden on desktop, shown on mobile */
+.mobile-header-actions {
+  display: none;
+}
+
+.header-chip,
+.header-contact-pill {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 14px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  white-space: nowrap;
+  transition: transform 220ms cubic-bezier(0.2, 0, 0, 1), box-shadow 220ms ease;
+}
+
+.header-chip {
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.065);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--secondary);
+}
+
+.header-chip .material-symbols-rounded {
+  font-size: 20px;
+  color: var(--primary-high);
+}
+
+.header-contact-pill {
+  border-radius: 14px;
+  border: 0;
+  background: linear-gradient(135deg, #25d366, var(--tertiary));
+  color: #041109;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.28);
+}
+
+.header-contact-pill .material-symbols-rounded {
+  font-size: 20px;
+}
+
+.header-chip:hover,
+.header-contact-pill:hover {
+  transform: translateY(-2px);
+}
+
+/* Mobile Bottom Nav - Modern Floating Dock */
 .mobile-nav {
   position: fixed;
   z-index: 20;
   left: 50%;
   bottom: 16px;
   transform: translateX(-50%);
-  width: min(520px, calc(100% - 28px));
+  width: min(420px, calc(100% - 28px));
   min-height: 72px;
   display: none;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 4px;
-  padding: 8px;
-  border: 1px solid var(--outline);
-  border-radius: 26px;
-  background: rgba(13, 10, 17, 0.82);
-  box-shadow: 0 18px 56px rgba(0, 0, 0, 0.42);
-  backdrop-filter: blur(18px);
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 231, 246, 0.12);
+  border-radius: 28px;
+  background:
+    linear-gradient(145deg, rgba(28, 22, 38, 0.92), rgba(13, 10, 17, 0.96));
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.52),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+    0 1px 0 rgba(255, 255, 255, 0.08) inset;
+  backdrop-filter: blur(24px) saturate(1.4);
 }
 
-.mobile-nav a {
+.mobile-nav-glow {
+  position: absolute;
+  inset: -1px;
+  border-radius: 29px;
+  background:
+    conic-gradient(from 180deg at 50% 50%, rgba(255, 79, 163, 0.18), rgba(141, 243, 229, 0.12), rgba(200, 255, 111, 0.1), rgba(255, 79, 163, 0.18));
+  opacity: 0;
+  filter: blur(10px);
+  z-index: -1;
+  transition: opacity 600ms ease;
+  animation: navGlowPulse 6s ease-in-out infinite;
+}
+
+.mobile-nav:hover .mobile-nav-glow {
+  opacity: 1;
+}
+
+.mobile-nav-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 0;
+  padding: 8px 4px;
+  border-radius: 18px;
+  color: rgba(216, 199, 211, 0.5);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    color 320ms cubic-bezier(0.2, 0, 0, 1),
+    background 320ms cubic-bezier(0.2, 0, 0, 1),
+    transform 220ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+.mobile-nav-icon-wrap {
+  position: relative;
+  width: 36px;
+  height: 36px;
   display: grid;
   place-items: center;
-  gap: 2px;
-  min-width: 0;
-  border-radius: 20px;
-  color: var(--muted);
-  font-size: 0.76rem;
-  font-weight: 800;
+  border-radius: 12px;
+  transition:
+    background 320ms cubic-bezier(0.2, 0, 0, 1),
+    transform 320ms cubic-bezier(0.2, 0, 0, 1),
+    box-shadow 320ms ease;
 }
 
-.mobile-nav a:hover,
-.mobile-nav a:focus-visible {
-  background: var(--primary-low);
+.mobile-nav-icon-wrap .material-symbols-rounded {
+  font-size: 24px;
+  transition: transform 320ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+.mobile-nav-label {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  opacity: 0.7;
+  transition: opacity 320ms ease, transform 320ms ease;
+}
+
+/* Mobile nav - hover state */
+.mobile-nav-item:hover {
   color: var(--text);
+}
+
+.mobile-nav-item:hover .mobile-nav-icon-wrap {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Mobile nav - active state */
+.mobile-nav-item.active {
+  color: var(--primary-high);
+}
+
+.mobile-nav-item.active .mobile-nav-icon-wrap {
+  background:
+    radial-gradient(circle at 50% 60%, rgba(255, 79, 163, 0.32), rgba(255, 79, 163, 0.08));
+  box-shadow:
+    0 4px 16px rgba(255, 79, 163, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px) scale(1.08);
+}
+
+.mobile-nav-item.active .mobile-nav-icon-wrap .material-symbols-rounded {
+  transform: scale(1.05);
+}
+
+.mobile-nav-item.active .mobile-nav-label {
+  opacity: 1;
+  color: var(--primary-high);
+}
+
+.mobile-nav-item.active::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-high));
+  box-shadow: 0 0 12px rgba(255, 79, 163, 0.6);
+  animation: navDotIn 360ms cubic-bezier(0.2, 0, 0, 1) both;
+}
+
+/* Mobile nav - pressed state */
+.mobile-nav-item:active .mobile-nav-icon-wrap {
+  transform: translateY(0) scale(0.94);
+  transition-duration: 80ms;
+}
+
+@keyframes navDotIn {
+  from {
+    width: 4px;
+    opacity: 0;
+  }
+  to {
+    width: 18px;
+    opacity: 1;
+  }
+}
+
+@keyframes navGlowPulse {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.6;
+  }
 }
 
 .reveal {
@@ -1604,6 +1822,12 @@ h2 {
     display: none;
   }
 
+  .mobile-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
   .top-app-bar {
     top: 10px;
     min-height: 64px;
@@ -1675,6 +1899,39 @@ h2 {
     display: none;
   }
 
+  .mobile-header-actions {
+    gap: 6px;
+  }
+
+  .header-chip,
+  .header-contact-pill {
+    min-height: 38px;
+    padding: 0 12px;
+    font-size: 0.78rem;
+    border-radius: 12px;
+  }
+
+  .mobile-nav {
+    bottom: 12px;
+    min-height: 68px;
+    padding: 8px 10px;
+    border-radius: 24px;
+  }
+
+  .mobile-nav-icon-wrap {
+    width: 34px;
+    height: 34px;
+    border-radius: 11px;
+  }
+
+  .mobile-nav-icon-wrap .material-symbols-rounded {
+    font-size: 22px;
+  }
+
+  .mobile-nav-label {
+    font-size: 0.64rem;
+  }
+
   .hero {
     padding-top: 34px;
   }
@@ -1740,7 +1997,6 @@ h2 {
   .team,
   .projects,
   .achievements,
-  .skills,
   .contact {
     padding: 50px 0;
   }
