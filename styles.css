@@ -29,6 +29,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -40,6 +41,7 @@ body {
     linear-gradient(240deg, rgba(126, 231, 255, 0.08), transparent 34%),
     var(--bg);
   overflow-x: hidden;
+  word-wrap: break-word;
 }
 
 body::before {
